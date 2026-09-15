@@ -69,3 +69,4 @@ tmp/
 *.cache
 
 **/.claude/settings.local.json
+.superpowers

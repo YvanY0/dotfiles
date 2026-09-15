@@ -1,0 +1,121 @@
+[meta]
+name        = "Nord Light"
+author      = "arcticicestudio"
+mode        = "light"
+description = "An arctic, north-bluish light palette — Polar Night on Snow Storm."
+
+[terminal]
+foreground = "#3B4252"
+background = "#E5E9F0"
+cursor = "#3B4252"
+cursor-text = "#E5E9F0"
+selection-foreground = "#E5E9F0"
+selection-background = "#3B4252"
+font-blending = "linear"
+palette = [
+    "#3B4252", "#BF616A", "#A3BE8C", "#EBCB8B",
+    "#81A1C1", "#B48EAD", "#88C0D0", "#E5E9F0",
+    "#4C566A", "#BF616A", "#A3BE8C", "#EBCB8B",
+    "#81A1C1", "#B48EAD", "#8FBCBB", "#ECEFF4",
+]
+
+[cursor]
+color = "#3B4252"
+text = "#E5E9F0"
+
+[cursor.block]
+color = "#3B4252"
+text = "#E5E9F0"
+
+[cursor.bar]
+color = "#5E81AC"
+
+[cursor.underline]
+color = "#5E81AC"
+
+[token]
+foreground = "#2E3440"
+secondary = "#4C566A"
+tertiary = "#7B88A1"
+accent = "#5E81AC"
+success = "#A3BE8C"
+warning = "#EBCB8B"
+danger = "#BF616A"
+hover-bg = "rgba(46,52,64,0.06)"
+active-bg = "rgba(94,129,172,0.18)"
+radius = 6
+shadow = "0 8px 24px rgba(46,52,64,0.12)"
+font-ui = ["-apple-system", "BlinkMacSystemFont", "SF Pro", "sans-serif"]
+font-mono = ["JetBrains Mono", "SF Mono", "Menlo", "monospace"]
+font-size = 13
+
+[panel]
+background = "#ECEFF4"
+surface = "#E5E9F0"
+border = "rgba(46,52,64,0.08)"
+
+[window]
+background = "#ECEFF4"
+material = "none"
+radius = 12
+
+[window.unfocused]
+opacity = 0.92
+
+[titlebar]
+foreground = "#4C566A"
+font-size = 13
+font-weight = 500
+height = 40
+
+[titlebar.unfocused]
+foreground = "#7B88A1"
+
+[sidebar]
+background = "#ECEFF4"
+border-right = "1px solid #D8DEE9"
+width = 220
+material = "none"
+
+[tab]
+background = "transparent"
+foreground = "#4C566A"
+radius = 6
+font-size = 13
+font-weight = 400
+padding = 10
+indicator-color = "#7B88A1"
+
+[tab.hover]
+background = "rgba(46,52,64,0.05)"
+
+[tab.active]
+background = "#E5E9F0"
+foreground = "#2E3440"
+font-weight = 500
+shadow = "0 1px 2px rgba(46,52,64,0.10)"
+indicator-color = "#5E81AC"
+
+[tab.active.unfocused]
+background = "#E5E9F0"
+foreground = "#4C566A"
+shadow = "none"
+
+[tab-bar]
+height = 36
+padding = 8
+border-bottom = "1px solid rgba(46,52,64,0.08)"
+
+[tab-bar.tab]
+radius = 8
+height = 28
+
+[container]
+background = "#ECEFF4"
+radius = 0
+margin = 0
+padding = 8
+
+[divider]
+color = "rgba(46,52,64,0.08)"
+width = 1

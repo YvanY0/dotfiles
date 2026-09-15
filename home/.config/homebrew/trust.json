@@ -1,0 +1,10 @@
+{
+  "trustedtaps": [
+    "anomalyco/tap",
+    "chen08209/tap",
+    "https://github.com/jundot/omlx",
+    "jundot/omlx",
+    "riscv-software-src/riscv",
+    "yvany0/tap"
+  ]
+}

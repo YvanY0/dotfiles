@@ -1,5 +1,7 @@
 tap "anomalyco/tap", trusted: true
+tap "chen08209/tap", trusted: true
 tap "homebrew/cask"
+tap "riscv-software-src/riscv", trusted: true
 tap "yvany0/tap", trusted: true
 # Simple, modern, secure file encryption
 brew "age"
@@ -53,56 +55,66 @@ brew "go"
 brew "gum"
 # Post-modern modal text editor
 brew "helix"
-# Self-improving AI agent that creates skills from experience
-brew "hermes-agent"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Command-line benchmarking tool
 brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Handy way to save and run project-specific commands
 brew "just"
+# Next-gen compiler infrastructure
+brew "llvm"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Utility for directing compilation
 brew "make"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Incremental parsing library
+brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
+# Small build system for use with gyp or CMake
+brew "ninja"
 # Modern shell for the GitHub era
 brew "nushell"
+# AI agent toolkit
+brew "pi-coding-agent"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
-# Tool for managing OCI containers and pods
-brew "podman"
-# Alternative to docker-compose using podman
-brew "podman-compose"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
-# Framework for managing multi-language pre-commit hooks
-brew "pre-commit"
 # Fast Git hook manager written in Rust, drop-in alternative to pre-commit
 brew "prek"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Unofficial Bitwarden CLI client
 brew "rbw"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
+# GNU compiler collection for riscv64-elf
+brew "riscv64-elf-gcc"
+# GNU debugger for riscv64-elf cross development
+brew "riscv64-elf-gdb"
 # Rust toolchain installer
 brew "rustup"
+# Easily detect and prevent bugs and anti-patterns in your codebase
+brew "semgrep"
 # Fast, configurable, shell plugin manager
 brew "sheldon"
+# Toolkit to help you get started with Spec-Driven Development
+brew "specify"
 # Non-interactive SSH password auth
 brew "sshpass"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
-# Command-line interface for running and interacting with Temporal Server and UI
-brew "temporal"
 # Program that allows you to count code, quickly
 brew "tokei"
 # Markup-based typesetting system
@@ -115,26 +127,36 @@ brew "uv"
 brew "vivid"
 # Yet another elegant Go interpreter
 brew "yaegi"
+# Resumes as code in YAML
+brew "yamlresume"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode"
+# RISC-V ISA simulator (spike)
+brew "riscv-software-src/riscv/riscv-isa-sim", trusted: true
+# RISC-V Proxy Kernel
+brew "riscv-software-src/riscv/riscv-pk", trusted: true
+# RISC-V toolchain including gcc (with newlib), simulator (spike), and pk
+brew "riscv-software-src/riscv/riscv-tools"
 # CLI for guisu dotfile manager
 brew "yvany0/tap/guisu"
 # Configuration manager for AI coding agents
 cask "cc-switch"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
 # Continuation of Clash Verge - A Clash Meta GUI based on Tauri
 cask "clash-verge-rev"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
-# OpenAI's Codex desktop app for managing coding agents
-cask "codex-app"
 # Dictionary and translator app
 cask "easydict"
+# Multi-platform proxy client based on ClashMeta
+cask "chen08209/tap/flclash"
 cask "font-fontawesome"
 cask "font-im-writing-nerd-font"
 cask "font-inter-tight"
@@ -153,18 +175,12 @@ cask "kitty"
 cask "logi-options+"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# AI coding agent desktop client
-cask "opencode-desktop"
-# Screenshot tool
-cask "pixpin"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Open-source code editor
 cask "visual-studio-code"
 # Multiplayer code editor
 cask "zed"
-# Gecko based web browser
-cask "zen"
 vscode "aaron-bond.better-comments"
 vscode "arcticicestudio.nord-visual-studio-code"
 vscode "eamodio.gitlens"

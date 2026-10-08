@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+
+gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Setting up zsh as default shell"
+
+ZSH_PATH=$(which zsh)
+
+if [ "${SHELL}" != "${ZSH_PATH}" ]; then
+  gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Changing default shell to zsh"
+  sudo chsh -s "${ZSH_PATH}" "${USER:-$(whoami)}" >/dev/null 2>&1
+  gum log --level warn --level.foreground "{{ visual.nord.nord13 }}" "Default shell changed to zsh. Please log out and log back in for changes to take effect"
+else
+  gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "zsh is already the default shell"
+fi

@@ -1,0 +1,6 @@
+name = "config-zsh"
+script = "scripts/config-zsh.sh"
+order = 50
+mode = "onchange"
+platforms = ["linux"]
+failfast = false

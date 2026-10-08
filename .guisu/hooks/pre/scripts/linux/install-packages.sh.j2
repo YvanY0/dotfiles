@@ -1,0 +1,72 @@
+#!/bin/bash
+
+set -euo pipefail
+
+gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Setting up third-party repositories"
+
+for repo in free nonfree; do
+  gum spin --spinner points --title "Installing RPM Fusion ${repo}" -- \
+    sudo dnf install -y -q \
+      "https://download1.rpmfusion.org/${repo}/fedora/rpmfusion-${repo}-release-$(rpm -E %fedora).noarch.rpm" \
+      >/dev/null 2>&1
+done
+
+if ! rpm -q terra-release &>/dev/null; then
+  gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Installing Terra repository"
+  sudo dnf install -y -q --nogpgcheck \
+    --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' \
+    terra-release >/dev/null 2>&1
+fi
+
+gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Third-party repositories configured"
+
+gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Installing dnf groups and packages"
+
+dnf_groups=(
+  core
+  rpm-development-tools
+  admin-tools
+  container-management
+  development-tools
+  multimedia
+)
+
+dev_tools=(
+  make golang nodejs npm rustup
+  gh git-credential-libsecret git-delta git-lfs gitui glab tokei uv
+)
+editors=(neovim helix)
+fonts=(
+  ia-writer-nerd-fonts maple-fonts
+  nerdfontssymbolsonly-nerd-fonts rsms-inter-vf-fonts sarasa-gothic-fonts
+)
+terminal_tools=(
+  bat fzf glow gum ripgrep tmux zsh
+  atuin direnv eza fastfetch fd ghostty just lnav
+  mise sheldon starship zoxide
+)
+ui_tools=(
+  dms flatpak matugen niri
+  qt6-qtmultimedia qt6-qtsvg qt6-qtvirtualkeyboard
+  quickshell sddm vicinae
+)
+system_tools=(
+  jq podman-compose sshpass yq
+  age bottom brightnessctl cliphist conserver duf fcitx5-rime
+  librime-lua procs tealdeer
+)
+
+all_packages=(
+  "${dev_tools[@]}"
+  "${editors[@]}"
+  "${fonts[@]}"
+  "${terminal_tools[@]}"
+  "${ui_tools[@]}"
+  "${system_tools[@]}"
+)
+
+gum spin --spinner points --title "Installing package groups" -- \
+  sudo dnf group install -y -q --skip-broken "${dnf_groups[@]}"
+
+gum spin --spinner points --title "Installing individual packages" -- \
+  sudo dnf install -y -q --skip-broken "${all_packages[@]}"

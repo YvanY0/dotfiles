@@ -40,7 +40,11 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 path+=("${XDG_DATA_HOME}/npm/bin")
 
 # SSH agent
+{% if system.os == "darwin" %}
 export SSH_AUTH_SOCK="${TMPDIR%/}/rbw-$(id -u)/ssh-agent-socket"
+{% elif system.os == "linux" %}
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/rbw/ssh-agent-socket"
+{% endif %}
 
 # User executables
 path+=("${XDG_BIN_HOME}")

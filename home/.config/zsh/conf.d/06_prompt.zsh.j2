@@ -1,10 +1,14 @@
+{% set config = "starship.toml" %}
+{% if os() == "linux" %}
+{% set config = "pure.toml" %}
+{% endif %}
+export STARSHIP_CONFIG=~/.config/starship/{{ config }}
+{% if os() == "darwin" %}
+
 if [[ "$TERM_PROGRAM" == "zed" ]]; then
-  # Use a specific config for the Zed editor's terminal
   export STARSHIP_CONFIG=~/.config/starship/pure.toml
-else
-  # Use the default config for all other terminals
-  export STARSHIP_CONFIG=~/.config/starship/{{ "pure.toml" if isEphemeral else "starship.toml" }}
 fi
+{% endif %}
 
 eval "$(starship init zsh)"
 

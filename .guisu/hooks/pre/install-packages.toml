@@ -2,5 +2,5 @@ name = "install-packages"
 script = "scripts/install-packages.sh"
 order = 10
 mode = "onchange"
-platforms = ["darwin"]
+platforms = ["darwin", "linux"]
 failfast = true

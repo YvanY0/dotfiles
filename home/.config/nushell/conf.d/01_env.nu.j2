@@ -37,7 +37,11 @@ $env.NPM_CONFIG_USERCONFIG = ($env.XDG_CONFIG_HOME | path join "npm" "npmrc")
 path add ($env.XDG_DATA_HOME | path join "npm" "bin")
 
 # SSH agent
+{% if system.os == "darwin" %}
 $env.SSH_AUTH_SOCK = ($env.TMPDIR | path join $"rbw-$(id -u)" "ssh-agent-socket")
+{% elif system.os == "linux" %}
+$env.SSH_AUTH_SOCK = ($env.XDG_RUNTIME_DIR | path join "rbw" "ssh-agent-socket")
+{% endif %}
 
 # User executables
 path add $env.XDG_BIN_HOME

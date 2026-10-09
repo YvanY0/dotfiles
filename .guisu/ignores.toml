@@ -2,7 +2,6 @@
 linux = [
   ".config/homebrew/",
   ".config/kitty/",
-  ".config/nushell/",
   ".config/otty/",
   ".config/vscode/",
   ".config/zed/",

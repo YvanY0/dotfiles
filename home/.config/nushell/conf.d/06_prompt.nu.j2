@@ -1,134 +1,130 @@
 # Disable welcome banner
 $env.config.show_banner = false
 
-# Table display mode
-$env.config.table.mode = "single"
+# Nord palette
+let nord = {
+    nord0: '{{ visual.nord.nord0 }}'
+    nord1: '{{ visual.nord.nord1 }}'
+    nord2: '{{ visual.nord.nord2 }}'
+    nord3: '{{ visual.nord.nord3 }}'
+    nord4: '{{ visual.nord.nord4 }}'
+    nord5: '{{ visual.nord.nord5 }}'
+    nord6: '{{ visual.nord.nord6 }}'
+    nord7: '{{ visual.nord.nord7 }}'
+    nord8: '{{ visual.nord.nord8 }}'
+    nord9: '{{ visual.nord.nord9 }}'
+    nord10: '{{ visual.nord.nord10 }}'
+    nord11: '{{ visual.nord.nord11 }}'
+    nord12: '{{ visual.nord.nord12 }}'
+    nord13: '{{ visual.nord.nord13 }}'
+    nord14: '{{ visual.nord.nord14 }}'
+    nord15: '{{ visual.nord.nord15 }}'
+}
 
-# Nord Theme Configuration
-def nord_theme [] {
-    return {
-        binary: '{{ visual.nord.nord15 }}'
-        block: '{{ visual.nord.nord9 }}'
-        cell-path: '{{ visual.nord.nord5 }}'
-        closure: '{{ visual.nord.nord8 }}'
-        custom: '{{ visual.nord.nord7 }}'
-        duration: '{{ visual.nord.nord13 }}'
-        float: '{{ visual.nord.nord11 }}'
-        glob: '{{ visual.nord.nord7 }}'
-        int: '{{ visual.nord.nord15 }}'
-        list: '{{ visual.nord.nord8 }}'
-        nothing: '{{ visual.nord.nord11 }}'
-        range: '{{ visual.nord.nord13 }}'
-        record: '{{ visual.nord.nord8 }}'
-        string: '{{ visual.nord.nord14 }}'
+# Nord theme for nushell builtins and syntax shapes
+$env.config.color_config = {
+    binary: $nord.nord15
+    block: $nord.nord9
+    cell-path: $nord.nord5
+    closure: $nord.nord8
+    custom: $nord.nord7
+    duration: $nord.nord13
+    float: $nord.nord11
+    glob: $nord.nord7
+    int: $nord.nord15
+    list: $nord.nord8
+    nothing: $nord.nord11
+    range: $nord.nord13
+    record: $nord.nord8
+    string: $nord.nord14
 
-        bool: {|| if $in { '{{ visual.nord.nord8 }}' } else { '{{ visual.nord.nord13 }}' } }
-
-        datetime: {|| (date now) - $in |
-            if $in < 1hr {
-                { fg: '{{ visual.nord.nord11 }}' attr: 'b' }
-            } else if $in < 6hr {
-                '{{ visual.nord.nord11 }}'
-            } else if $in < 1day {
-                '{{ visual.nord.nord13 }}'
-            } else if $in < 3day {
-                '{{ visual.nord.nord14 }}'
-            } else if $in < 1wk {
-                { fg: '{{ visual.nord.nord14 }}' attr: 'b' }
-            } else if $in < 6wk {
-                '{{ visual.nord.nord8 }}'
-            } else if $in < 52wk {
-                '{{ visual.nord.nord9 }}'
-            } else { 'dark_gray' }
+    # Dynamic values
+    bool: {|| if $in { $nord.nord8 } else { $nord.nord13 } }
+    datetime: {|| (date now) - $in |
+        if $in < 1hr {
+            { fg: $nord.nord11, attr: b }
+        } else if $in < 6hr {
+            $nord.nord11
+        } else if $in < 1day {
+            $nord.nord13
+        } else if $in < 3day {
+            $nord.nord14
+        } else if $in < 1wk {
+            { fg: $nord.nord14, attr: b }
+        } else if $in < 6wk {
+            $nord.nord8
+        } else {
+            $nord.nord9
         }
-
-        filesize: {|e|
-            if $e == 0b {
-                '{{ visual.nord.nord5 }}'
-            } else if $e < 1mb {
-                '{{ visual.nord.nord8 }}'
-            } else { fg: '{{ visual.nord.nord9 }}' }
-        }
-
-        shape_and: { fg: '{{ visual.nord.nord15 }}' attr: 'b' }
-        shape_binary: { fg: '{{ visual.nord.nord15 }}' attr: 'b' }
-        shape_block: { fg: '{{ visual.nord.nord9 }}' attr: 'b' }
-        shape_bool: '{{ visual.nord.nord8 }}'
-        shape_closure: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_custom: '{{ visual.nord.nord14 }}'
-        shape_datetime: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_directory: '{{ visual.nord.nord8 }}'
-        shape_external: '{{ visual.nord.nord8 }}'
-        shape_external_resolved: '{{ visual.nord.nord8 }}'
-        shape_externalarg: { fg: '{{ visual.nord.nord14 }}' attr: 'b' }
-        shape_filepath: '{{ visual.nord.nord8 }}'
-        shape_flag: { fg: '{{ visual.nord.nord9 }}' attr: 'b' }
-        shape_float: { fg: '{{ visual.nord.nord11 }}' attr: 'b' }
-        shape_garbage: { fg: '{{ visual.nord.nord6 }}' bg: '{{ visual.nord.nord11 }}' attr: 'b' }
-        shape_glob_interpolation: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_globpattern: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_int: { fg: '{{ visual.nord.nord15 }}' attr: 'b' }
-        shape_internalcall: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_keyword: { fg: '{{ visual.nord.nord15 }}' attr: 'b' }
-        shape_list: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_literal: '{{ visual.nord.nord9 }}'
-        shape_match_pattern: '{{ visual.nord.nord14 }}'
-        shape_matching_brackets: { attr: 'u' }
-        shape_nothing: '{{ visual.nord.nord11 }}'
-        shape_operator: '{{ visual.nord.nord13 }}'
-        shape_or: { fg: '{{ visual.nord.nord15 }}' attr: 'b' }
-        shape_pipe: { fg: '{{ visual.nord.nord15 }}' attr: 'b' }
-        shape_range: { fg: '{{ visual.nord.nord13 }}' attr: 'b' }
-        shape_raw_string: { fg: '{{ visual.nord.nord7 }}' attr: 'b' }
-        shape_record: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_redirection: { fg: '{{ visual.nord.nord15 }}' attr: 'b' }
-        shape_signature: { fg: '{{ visual.nord.nord14 }}' attr: 'b' }
-        shape_string: '{{ visual.nord.nord14 }}'
-        shape_string_interpolation: { fg: '{{ visual.nord.nord8 }}' attr: 'b' }
-        shape_table: { fg: '{{ visual.nord.nord9 }}' attr: 'b' }
-        shape_vardecl: { fg: '{{ visual.nord.nord9 }}' attr: 'u' }
-        shape_variable: '{{ visual.nord.nord15 }}'
-
-        foreground: '{{ visual.nord.nord5 }}'
-        background: '{{ visual.nord.nord0 }}'
-        cursor: '{{ visual.nord.nord5 }}'
-
-        empty: '{{ visual.nord.nord9 }}'
-        header: { fg: '{{ visual.nord.nord14 }}' attr: 'b' }
-        hints: '{{ visual.nord.nord3 }}'
-        leading_trailing_space_bg: { attr: 'n' }
-        row_index: { fg: '{{ visual.nord.nord14 }}' attr: 'b' }
-        search_result: { fg: '{{ visual.nord.nord11 }}' bg: '{{ visual.nord.nord5 }}' }
-        separator: '{{ visual.nord.nord5 }}'
     }
+    filesize: {|e|
+        if $e == 0b {
+            $nord.nord5
+        } else if $e < 1mb {
+            $nord.nord8
+        } else {
+            { fg: $nord.nord9 }
+        }
+    }
+
+    # UI
+    empty: $nord.nord9
+    header: { fg: $nord.nord14, attr: b }
+    hints: $nord.nord3
+    leading_trailing_space_bg: { attr: n }
+    row_index: { fg: $nord.nord14, attr: b }
+    search_result: { fg: $nord.nord11, bg: $nord.nord5 }
+    separator: $nord.nord5
+
+    # Syntax shapes
+    shape_and: { fg: $nord.nord15, attr: b }
+    shape_binary: { fg: $nord.nord15, attr: b }
+    shape_block: { fg: $nord.nord9, attr: b }
+    shape_bool: $nord.nord8
+    shape_closure: { fg: $nord.nord8, attr: b }
+    shape_custom: $nord.nord14
+    shape_datetime: { fg: $nord.nord8, attr: b }
+    shape_directory: $nord.nord8
+    shape_external: $nord.nord8
+    shape_external_resolved: $nord.nord8
+    shape_externalarg: { fg: $nord.nord14, attr: b }
+    shape_filepath: $nord.nord8
+    shape_flag: { fg: $nord.nord9, attr: b }
+    shape_float: { fg: $nord.nord11, attr: b }
+    shape_garbage: { fg: $nord.nord6, bg: $nord.nord11, attr: b }
+    shape_glob_interpolation: { fg: $nord.nord8, attr: b }
+    shape_globpattern: { fg: $nord.nord8, attr: b }
+    shape_int: { fg: $nord.nord15, attr: b }
+    shape_internalcall: { fg: $nord.nord8, attr: b }
+    shape_keyword: { fg: $nord.nord15, attr: b }
+    shape_list: { fg: $nord.nord8, attr: b }
+    shape_literal: $nord.nord9
+    shape_match_pattern: $nord.nord14
+    shape_matching_brackets: { attr: u }
+    shape_nothing: $nord.nord11
+    shape_operator: $nord.nord13
+    shape_or: { fg: $nord.nord15, attr: b }
+    shape_pipe: { fg: $nord.nord15, attr: b }
+    shape_range: { fg: $nord.nord13, attr: b }
+    shape_raw_string: { fg: $nord.nord7, attr: b }
+    shape_record: { fg: $nord.nord8, attr: b }
+    shape_redirection: { fg: $nord.nord15, attr: b }
+    shape_signature: { fg: $nord.nord14, attr: b }
+    shape_string: $nord.nord14
+    shape_string_interpolation: { fg: $nord.nord8, attr: b }
+    shape_table: { fg: $nord.nord9, attr: b }
+    shape_vardecl: { fg: $nord.nord9, attr: u }
+    shape_variable: $nord.nord15
 }
-
-# Apply Nord theme
-$env.config.color_config = (nord_theme)
-
-# Update terminal colors for Nord theme
-def update_terminal_colors [] {
-    let theme = (nord_theme)
-    let osc_screen_foreground_color = '10;'
-    let osc_screen_background_color = '11;'
-    let osc_cursor_color = '12;'
-
-    $"
-    (ansi -o $osc_screen_foreground_color)($theme.foreground)(char bel)
-    (ansi -o $osc_screen_background_color)($theme.background)(char bel)
-    (ansi -o $osc_cursor_color)($theme.cursor)(char bel)
-    "
-    | str replace --all "\n" ''
-    | print -n $"($in)\r"
-}
-
-# Apply terminal colors
-update_terminal_colors
 
 # Starship prompt
 if (which starship | is-not-empty) {
-    # Set starship config path
-    $env.STARSHIP_CONFIG = ($env.HOME | path join ".config" "starship" "pure.toml")
+    {% if os() == "linux" %}
+    let starship_config = "pure.toml"
+    {% else %}
+    let starship_config = if ($env.TERM_PROGRAM? == "zed") { "pure.toml" } else { "starship.toml" }
+    {% endif %}
+    $env.STARSHIP_CONFIG = ($env.HOME | path join ".config" "starship" $starship_config)
 
     # Initialize starship and save to vendor autoload
     starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")

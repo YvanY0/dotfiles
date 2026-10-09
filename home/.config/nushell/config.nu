@@ -15,6 +15,3 @@ source ($nu.default-config-dir | path join "conf.d" "03_integrations.nu")
 source ($nu.default-config-dir | path join "conf.d" "04_aliases.nu")
 source ($nu.default-config-dir | path join "conf.d" "05_keybindings.nu")
 source ($nu.default-config-dir | path join "conf.d" "06_prompt.nu")
-
-# Private configuration
-source ($nu.default-config-dir | path join "conf.d" "99_private.nu")

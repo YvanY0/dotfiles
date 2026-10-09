@@ -1,5 +1,2 @@
-[rio]
-shell = "/opt/homebrew/bin/nu"
-
 [kitty]
 hideWindowDecorations = "titlebar-only"

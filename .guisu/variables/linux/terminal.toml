@@ -1,5 +1,0 @@
-[rio]
-shell = "/usr/bin/nu"
-
-[kitty]
-hideWindowDecorations = "yes"

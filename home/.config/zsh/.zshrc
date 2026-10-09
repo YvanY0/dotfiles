@@ -11,7 +11,3 @@ load_modules "03_integrations.zsh"
 
 # User interface and experience
 load_modules "04_aliases.zsh" "05_bindkeys.zsh" "06_prompt.zsh"
-
-# Private configuration
-load_module "98_bitwarden.zsh"
-load_module "99_private.zsh"

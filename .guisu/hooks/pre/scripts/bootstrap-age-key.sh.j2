@@ -11,11 +11,18 @@ fi
 
 gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Saving age key to ${AGE_KEY_PATH}"
 
-mkdir -p $(dirname "${AGE_KEY_PATH}")
+mkdir -p "$(dirname "${AGE_KEY_PATH}")"
 
 cat > "${AGE_KEY_PATH}" <<'EOF'
 {{ bitwardenFields("age-ssh", "privateAge") | trim }}
 EOF
+
+if [ ! -s "${AGE_KEY_PATH}" ]; then
+    rm -f "${AGE_KEY_PATH}"
+    gum log --level error "Age key is empty; refusing to keep it"
+    exit 1
+fi
+
 chmod 600 "${AGE_KEY_PATH}"
 
 gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Age key configured"

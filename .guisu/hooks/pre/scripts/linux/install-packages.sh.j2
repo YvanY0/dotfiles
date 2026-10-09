@@ -7,8 +7,7 @@ gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Setting up t
 for repo in free nonfree; do
   gum spin --spinner points --title "Installing RPM Fusion ${repo}" -- \
     sudo dnf install -y -q \
-      "https://download1.rpmfusion.org/${repo}/fedora/rpmfusion-${repo}-release-$(rpm -E %fedora).noarch.rpm" \
-      >/dev/null 2>&1
+      "https://download1.rpmfusion.org/${repo}/fedora/rpmfusion-${repo}-release-$(rpm -E %fedora).noarch.rpm"
 done
 
 if ! rpm -q terra-release &>/dev/null; then
@@ -54,17 +53,14 @@ system_tools=(
   librime-lua procs tealdeer
 )
 
-all_packages=(
-  "${dev_tools[@]}"
-  "${editors[@]}"
-  "${fonts[@]}"
-  "${terminal_tools[@]}"
-  "${ui_tools[@]}"
-  "${system_tools[@]}"
-)
-
 gum spin --spinner points --title "Installing package groups" -- \
   sudo dnf group install -y -q --skip-broken "${dnf_groups[@]}"
 
 gum spin --spinner points --title "Installing individual packages" -- \
-  sudo dnf install -y -q --skip-broken "${all_packages[@]}"
+  sudo dnf install -y -q --skip-broken \
+    "${dev_tools[@]}" \
+    "${editors[@]}" \
+    "${fonts[@]}" \
+    "${terminal_tools[@]}" \
+    "${ui_tools[@]}" \
+    "${system_tools[@]}"

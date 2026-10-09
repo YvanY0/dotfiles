@@ -19,7 +19,7 @@ repos:
       - id: yamllint
         name: Lint YAML files
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.13.1-1
+    rev: v3.14.1-1
     hooks:
       - id: shfmt
         name: Format shell scripts
@@ -29,14 +29,14 @@ repos:
       - id: shellcheck
         name: Check shell scripts
   - repo: https://github.com/editorconfig-checker/editorconfig-checker
-    rev: v3.6.1
+    rev: v4.0.2
     hooks:
       - id: editorconfig-checker
         name: Check EditorConfig rules
-  - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.30.1
+  - repo: https://github.com/betterleaks/betterleaks
+    rev: v1.9.0
     hooks:
-      - id: gitleaks
+      - id: betterleaks
         name: Detect hardcoded secrets
   - repo: https://github.com/adhtruong/mirrors-typos
     rev: v1.45.0

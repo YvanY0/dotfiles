@@ -119,7 +119,7 @@ $env.config.color_config = {
 
 # Starship prompt
 if (which starship | is-not-empty) {
-    {% if os() == "linux" %}
+    {% if system.os == "linux" %}
     let starship_config = "pure.toml"
     {% else %}
     let starship_config = if ($env.TERM_PROGRAM? == "zed") { "pure.toml" } else { "starship.toml" }

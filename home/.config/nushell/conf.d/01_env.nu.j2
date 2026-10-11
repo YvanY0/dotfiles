@@ -17,7 +17,6 @@ $env.BITWARDENCLI_APPDATA_DIR = ($env.XDG_CONFIG_HOME | path join "bitwarden")
 $env.CLAUDE_CONFIG_DIR = ($env.XDG_CONFIG_HOME | path join "claude")
 $env.LESSHISTFILE = "-"
 $env.PYTHON_HISTORY = ($env.XDG_STATE_HOME | path join "python" "history")
-$env.TART_HOME = ($env.XDG_DATA_HOME | path join "tart")
 $env.TLRC_CONFIG = ($env.XDG_CONFIG_HOME | path join "tlrc" "config.toml")
 $env.INPUTRC = ($env.XDG_CONFIG_HOME | path join "readline" "inputrc")
 $env.RUFF_CACHE_DIR = ($env.XDG_CACHE_HOME | path join "ruff")
@@ -30,6 +29,7 @@ path add ($env.CARGO_HOME | path join "bin")
 # Go
 $env.GOPATH = ($env.XDG_DATA_HOME | path join "go")
 $env.GOMODCACHE = ($env.XDG_CACHE_HOME | path join "go" "mod")
+$env.GOENV = ($env.XDG_CONFIG_HOME | path join "go" "env")
 path add ($env.GOPATH | path join "bin")
 
 # Npm

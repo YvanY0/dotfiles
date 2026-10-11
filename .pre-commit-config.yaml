@@ -24,7 +24,7 @@ repos:
       - id: shfmt
         name: Format shell scripts
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.11.0.1
+    rev: v0.11.0.1-1
     hooks:
       - id: shellcheck
         name: Check shell scripts
@@ -39,14 +39,14 @@ repos:
       - id: betterleaks
         name: Detect hardcoded secrets
   - repo: https://github.com/adhtruong/mirrors-typos
-    rev: v1.45.0
+    rev: v1.51.1
     hooks:
       - id: typos
         name: Detect spelling typos
         args: ['--force-exclude']
         exclude: '.age'
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
-    rev: v9.24.0
+    rev: v9.27.0
     hooks:
       - id: commitlint
         name: Lint commit message

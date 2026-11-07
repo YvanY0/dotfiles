@@ -27,7 +27,8 @@ repos:
     rev: v0.11.0.1-1
     hooks:
       - id: shellcheck
-        name: Check shell scripts
+        name: Check shell scripts with shellcheck
+        exclude: '\.j2$'
   - repo: https://github.com/editorconfig-checker/editorconfig-checker
     rev: v4.0.2
     hooks:

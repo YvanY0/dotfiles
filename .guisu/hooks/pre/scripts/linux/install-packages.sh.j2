@@ -12,7 +12,7 @@ gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Setting up t
 for repo in free nonfree; do
   gum spin --spinner points --title "Installing RPM Fusion ${repo}" -- \
     sudo dnf install -y -q \
-      "https://download1.rpmfusion.org/${repo}/fedora/rpmfusion-${repo}-release-$(rpm -E %fedora).noarch.rpm"
+    "https://download1.rpmfusion.org/${repo}/fedora/rpmfusion-${repo}-release-$(rpm -E %fedora).noarch.rpm"
 done
 
 if ! rpm -q terra-release &>/dev/null; then
@@ -63,9 +63,9 @@ gum spin --spinner points --title "Installing package groups" -- \
 
 gum spin --spinner points --title "Installing individual packages" -- \
   sudo dnf install -y -q --skip-broken \
-    "${dev_tools[@]}" \
-    "${editors[@]}" \
-    "${fonts[@]}" \
-    "${terminal_tools[@]}" \
-    "${ui_tools[@]}" \
-    "${system_tools[@]}"
+  "${dev_tools[@]}" \
+  "${editors[@]}" \
+  "${fonts[@]}" \
+  "${terminal_tools[@]}" \
+  "${ui_tools[@]}" \
+  "${system_tools[@]}"

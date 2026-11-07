@@ -1,0 +1,7 @@
+name = "nixos-rebuild"
+script = "scripts/nixos-rebuild.sh"
+order = 90
+mode = "always"
+platforms = ["linux"]
+failfast = false
+timeout = 0

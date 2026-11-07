@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+{% if system.distroId != "nixos" %}
+gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Skipping nixos-rebuild on {{ system.distroId }}"
+exit 0
+{% endif %}
+
+gum spin --spinner points --title "Rebuilding NixOS configuration" -- \
+  sudo nixos-rebuild switch --file "$HOME/.config/nixos/system.nix"

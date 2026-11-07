@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+{% if system.distroId != "fedora" %}
+gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Skipping dnf package installation on {{ system.distroId }}"
+exit 0
+{% endif %}
+
 gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Setting up third-party repositories"
 
 for repo in free nonfree; do

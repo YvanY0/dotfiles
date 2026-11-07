@@ -1,4 +1,4 @@
-{% set isEphemeral = (system.os == "linux" and system.distroId != "fedora") %}
+{% set isEphemeral = (system.os == "linux" and system.distroId not in ["fedora", "nixos"]) %}
 {% set isPersonal = (not isEphemeral and system.username == "yvanyo") %}
 
 [general]

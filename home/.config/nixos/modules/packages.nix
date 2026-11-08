@@ -1,10 +1,5 @@
 { pkgs, lib, ... }:
 
-let
-  unstable = import (builtins.fetchTarball {
-    url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable/nixexprs.tar.xz";
-  }) { config.allowUnfree = true; };
-in
 {
   environment.systemPackages =
     (with pkgs; [
@@ -28,6 +23,7 @@ in
       openssl
       pinentry-curses
       pkg-config
+      podman-compose
       poppler
       rbw
       rustup
@@ -39,8 +35,7 @@ in
       yaegi
       zsh
     ])
-    ++ (with unstable; [
-      atuin
+    ++ (with pkgs.unstable; [
       bottom
       carapace
       delta

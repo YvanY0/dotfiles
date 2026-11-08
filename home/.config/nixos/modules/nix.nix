@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  nixosVersions = import ../versions.nix;
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -24,7 +27,7 @@
 
   nix.registry.nixpkgs.to = {
     type = "tarball";
-    url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-26.05/nixexprs.tar.xz";
+    url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-${nixosVersions.channel}/nixexprs.tar.xz";
   };
 
   nix.registry.unstable.to = {

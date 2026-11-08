@@ -1,14 +1,13 @@
 { ... }:
 
 {
-  users.users."yvanyo" = {
+  users.users."{{ system.username }}" = {
     isNormalUser = true;
-    description = "Yvan Yo";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   security.sudo.extraRules = [{
-    users = [ "yvanyo" ];
+    users = [ "{{ system.username }}" ];
     commands = [{ command = "ALL"; options = [ "NOPASSWD" ]; }];
   }];
 }

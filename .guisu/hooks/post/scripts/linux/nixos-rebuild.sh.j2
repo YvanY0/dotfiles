@@ -8,4 +8,4 @@ exit 0
 {% endif %}
 
 gum spin --spinner points --title "Rebuilding NixOS configuration" -- \
-  sudo nixos-rebuild switch --file "$HOME/.config/nixos/system.nix"
+  nixos-rebuild switch --sudo --file "$HOME/.config/nixos/system.nix"

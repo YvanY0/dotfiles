@@ -70,3 +70,4 @@ tmp/
 
 **/.claude/settings.local.json
 .superpowers
+docs/superpowers

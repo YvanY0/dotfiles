@@ -5,6 +5,7 @@
     "https://github.com/jundot/omlx",
     "jundot/omlx",
     "riscv-software-src/riscv",
+    "stablyai/orca",
     "yvany0/tap"
   ]
 }

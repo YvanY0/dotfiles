@@ -1,7 +1,8 @@
 # Platform-specific ignore patterns (relative to rootEntry)
+darwin = [".config/fcitx5/", ".config/nixos/"]
+
 linux = [
   ".config/homebrew/",
-  ".config/kitty/",
   ".config/otty/",
   ".config/vscode/",
   ".config/zed/",

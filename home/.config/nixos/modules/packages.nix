@@ -1,6 +1,21 @@
 { pkgs, lib, ... }:
 
 {
+  programs.clash-verge = {
+    enable = true;
+    package = pkgs.unstable.clash-verge-rev;
+    serviceMode = true;
+  };
+
+  fonts.packages = with pkgs.unstable; [
+    font-awesome
+    inter
+    maple-mono.NF
+    nerd-fonts.im-writing
+    nerd-fonts.symbols-only
+    sarasa-gothic
+  ];
+
   environment.systemPackages =
     (with pkgs; [
       age
@@ -15,6 +30,7 @@
       git-lfs
       gitui
       go
+      google-chrome
       jq
       llvm
       luarocks
@@ -28,6 +44,7 @@
       rbw
       rustup
       sheldon
+      sing-box
       sshpass
       vim
       vivid
@@ -47,8 +64,11 @@
       glab
       glow
       gum
+      ghostty
+      gui-for-singbox
       hyperfine
       just
+      kitty
       lazygit
       mise
       neovim

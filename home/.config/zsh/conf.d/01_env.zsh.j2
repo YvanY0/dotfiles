@@ -23,11 +23,16 @@ export TEALDEER_CONFIG_DIR="${XDG_CONFIG_HOME}/tealdeer"
 # Rust
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+export CARGO_REGISTRIES_CRATES_IO_INDEX="sparse+https://rsproxy.cn/index/"
 path+=("${CARGO_HOME}/bin")
 
 # Go
 export GOPATH="${XDG_DATA_HOME}/go"
 export GOMODCACHE="${XDG_CACHE_HOME}/go/mod"
+export GOPROXY="https://goproxy.cn,direct"
+export GOSUMDB="sum.golang.org https://goproxy.cn/sumdb/sum.golang.org"
 export GOENV="${XDG_CONFIG_HOME}/go/env"
 path+=("${GOPATH}/bin")
 

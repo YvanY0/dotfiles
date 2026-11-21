@@ -7,5 +7,5 @@ gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Skipping nix
 exit 0
 {% endif %}
 
-gum spin --spinner points --title "Rebuilding NixOS configuration" -- \
+gum spin --spinner points --show-output --title "Rebuilding NixOS configuration" -- \
   nixos-rebuild switch --sudo --file "$HOME/.config/nixos/system.nix"

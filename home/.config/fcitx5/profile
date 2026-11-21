@@ -1,0 +1,21 @@
+[Groups/0]
+# Group Name
+Name=Default
+# Default input method
+DefaultIM=keyboard-us
+# Default keyboard layout
+Default Layout=us
+
+[Groups/0/Items/0]
+# Input method
+Name=wowtype
+# Keyboard layout is managed by the keyboard input method
+Layout=
+
+[Groups/0/Items/1]
+# Keyboard input method
+Name=keyboard-us
+Layout=
+
+[GroupOrder]
+0=Default

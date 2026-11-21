@@ -26,6 +26,7 @@ in
     ./modules/desktop.nix
     ./modules/shell.nix
     ./modules/nix.nix
+    ./modules/openlogi.nix
     ./modules/services.nix
   ];
 

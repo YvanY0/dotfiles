@@ -42,7 +42,7 @@ in
     {
       programs.niri = {
         enable = true;
-        package = pkgs.unstable.niri;
+        package = pkgs.niri;
       };
 
       services.displayManager.noctalia-greeter = {
@@ -57,27 +57,15 @@ in
         };
       };
 
-      environment.systemPackages = [ pkgs.unstable.noctalia ];
-
-      networking.networkmanager.enable = lib.mkDefault true;
       hardware.bluetooth.enable = lib.mkDefault true;
       services.upower.enable = lib.mkDefault true;
       services.power-profiles-daemon.enable = lib.mkIf (!config.services.tuned.enable) (
         lib.mkDefault true
       );
 
-      systemd.user.services.noctalia = {
-        description = "Noctalia Wayland desktop shell";
-        documentation = [ "https://docs.noctalia.dev/noctalia/" ];
-        partOf = [ "graphical-session.target" ];
-        after = [ "graphical-session.target" ];
-        wantedBy = [ "graphical-session.target" ];
-        environment.PATH = lib.mkForce null;
-        serviceConfig = {
-          ExecStart = lib.getExe pkgs.unstable.noctalia;
-          Restart = "on-failure";
-        };
-      };
+      programs.dms-shell.enable = true;
+
+      systemd.user.services.noctalia.enable = false;
     }
 
     (lib.mkIf cfg.enable {

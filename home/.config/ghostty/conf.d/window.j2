@@ -6,6 +6,6 @@ resize-overlay-position = center
 window-padding-color = extend
 window-inherit-working-directory = true
 window-inherit-font-size = true
-window-decoration = auto
+window-decoration = {{ "auto" if system.os == "darwin" else "none" }}
 window-theme = auto
 window-new-tab-position = current

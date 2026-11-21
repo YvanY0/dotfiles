@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   nixosVersions = import ../versions.nix;
@@ -7,7 +7,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   nix.settings = {
-    substituters = [
+    substituters = lib.mkForce [
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
     ];
   };

@@ -20,13 +20,14 @@
     (with pkgs; [
       age
       bat
+      cabal-install
       btop
       curl
       dfu-util
       duf
       eza
       gcc
-      git
+      gitFull
       git-lfs
       gitui
       go

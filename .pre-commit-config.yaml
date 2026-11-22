@@ -18,6 +18,11 @@ repos:
     hooks:
       - id: yamllint
         name: Lint YAML files
+  - repo: https://github.com/NixOS/nixfmt
+    rev: v1.5.0
+    hooks:
+      - id: nixfmt
+        name: Format Nix files
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.14.1-1
     hooks:
@@ -35,12 +40,12 @@ repos:
       - id: editorconfig-checker
         name: Check EditorConfig rules
   - repo: https://github.com/betterleaks/betterleaks
-    rev: v2.0.0-rc.6
+    rev: v2.0.0-rc.9
     hooks:
       - id: betterleaks
         name: Detect hardcoded secrets
   - repo: https://github.com/adhtruong/mirrors-typos
-    rev: v1.51.1
+    rev: v1.52.2
     hooks:
       - id: typos
         name: Detect spelling typos

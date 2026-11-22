@@ -141,8 +141,8 @@ brew "riscv-software-src/riscv/riscv-pk", trusted: true
 brew "riscv-software-src/riscv/riscv-tools"
 # CLI for guisu dotfile manager
 brew "yvany0/tap/guisu"
-# Configuration manager for AI coding agents
-cask "cc-switch"
+# Model gateway for AI coding agents
+cask "magpie"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
 # Continuation of Clash Verge - A Clash Meta GUI based on Tauri

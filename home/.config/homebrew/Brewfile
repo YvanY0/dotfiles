@@ -11,6 +11,8 @@ brew "atuin", restart_service: :changed
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
+# Command-line interface for Cabal and Hackage
+brew "cabal-install"
 # Multi-shell multi-command argument completer
 brew "carapace"
 # Create and run Linux containers using lightweight virtual machines
@@ -35,6 +37,8 @@ brew "fd"
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
+# Glorious Glasgow Haskell Compilation System
+brew "ghc"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output

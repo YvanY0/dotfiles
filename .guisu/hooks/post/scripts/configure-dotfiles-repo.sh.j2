@@ -3,7 +3,7 @@ set -eufo pipefail
 
 gum log --level info --level.foreground "{{ visual.nord.nord14 }}" "Configuring dotfiles repository"
 
-gum spin --spinner points --title "Setting git user configuration" -- bash -c "
+gum spin --spinner points --show-output --title "Setting git user configuration" -- bash -c "
   git -C '{{ guisu.workingTree }}' config user.email {{ user.email.personal | quote }}
   git -C '{{ guisu.workingTree }}' config user.signingkey '~/.ssh/personal.pub'
   git -C '{{ guisu.workingTree }}' config gpg.ssh.allowedSignersFile '~/.ssh/personal.pub'

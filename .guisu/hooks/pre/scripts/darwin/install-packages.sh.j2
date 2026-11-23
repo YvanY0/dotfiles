@@ -2,5 +2,5 @@
 # brewfile-hash: {{ include(".config/homebrew/Brewfile") | blake3sum }}
 set -euo pipefail
 
-gum spin --spinner points --title "Installing/updating Homebrew packages" -- \
+gum spin --spinner points --show-output --title "Installing/updating Homebrew packages" -- \
   brew bundle --quiet --file="{{ guisu.srcDir }}/.config/homebrew/Brewfile"
